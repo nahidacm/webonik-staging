@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Webonik_Catalog>
+			<version>0.1.0</version>
+		</Webonik_Catalog>
+	</modules>
+
+	<global>
+		<blocks>
+			<catalog>
+				<rewrite>
+					<product_list_toolbar>Webonik_Catalog_Block_Product_List_Toolbar</product_list_toolbar>
+				</rewrite>
+			</catalog>
+		</blocks>
+	</global>
+	
+</config>

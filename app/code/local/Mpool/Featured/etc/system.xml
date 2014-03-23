@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <mpool translate="label" module="featured">
+            <label>Magento Pool</label>
+            <sort_order>9999</sort_order>
+        </mpool>
+    </tabs>
+    <sections>
+        <featured  translate="label" module="featured">                    
+            <label>Featured Products</label>
+            <tab>mpool</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>999999</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>            
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        
+                        <active translate="label comment">
+                            <label>Extension is active:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        
+                        <include_jquery translate="label">
+                            <label>Include jQuery</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Include jQuery 1.7. Set this to NO if you are already using jQuery in your webshop. ]]></comment>
+                        </include_jquery>
+                        
+                        <product_sort_by translate="label">
+                            <label>Sort By</label>
+                            <comment>Main block is used in content section of the site</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>featured/system_config_source_sort</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </product_sort_by>                        
+
+                    </fields>
+                </general>
+            </groups>
+        </featured>
+    </sections>
+</config>

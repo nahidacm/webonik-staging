@@ -1,0 +1,519 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+		<dd translate="label" module="ajaxcart">
+            <label>Developers-Inc</label>
+            <sort_order>200</sort_order>
+		</dd>
+    </tabs>
+	<sections>
+		<ajaxcart translate="label" module="ajaxcart">
+			<label>AJAX Cart with Drag &amp; Drop</label>
+			<tab>dd</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>10</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<configuration translate="label">
+					<label>Configuration</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled translate="label">
+							<label>Enable Ajax Cart</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enabled>									
+					</fields>
+				</configuration>
+				<loader_configuration translate="label">
+					<label>Petal Loader Configuration</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<petal1 translate="label">
+							<label>1st Petal Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</petal1>	
+						<petal2 translate="label">
+							<label>2nd Petal Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</petal2>	
+						<petal3 translate="label">
+							<label>3rd Petal Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</petal3>									
+					</fields>
+				</loader_configuration>
+				<popup_configuration translate="label">
+					<label>Popup Configuration</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>		
+						<notification_popup translate="label">
+							<label>Display Success Popup</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</notification_popup>
+						<autohide_notification_popup translate="label">
+							<label>Auto-hide Success Popup</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>The value is in "seconds"</comment>
+						</autohide_notification_popup>
+						<notification_popup_bkg translate="label">
+							<label>Popup Background Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</notification_popup_bkg>
+						<enable_notification_popup_wrapper_bkg translate="label">
+							<label>Display Popup Wrapper</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>If Yes - a transparent background will appear behind the popup.</comment>
+						</enable_notification_popup_wrapper_bkg>	
+						<notification_popup_wrapper_bkg translate="label">
+							<label>Popup Wrapper Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</notification_popup_wrapper_bkg>
+						<notification_popup_bodersize translate="label">
+							<label>Popup Border Size</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Ex: "1". The value is in "px"</comment>
+						</notification_popup_bodersize>
+						<notification_popup_bodercolor translate="label">
+							<label>Popup Border Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</notification_popup_bodercolor>	
+						<options_popup_width translate="label">
+							<label>Options Popup Width</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Ex: "800". The value is in "px"</comment>
+						</options_popup_width>
+						<success_popup_width translate="label">
+							<label>Success Popup Width</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Ex: "800". The value is in "px"</comment>
+						</success_popup_width>				
+					</fields>
+				</popup_configuration>
+				<qty_configuration translate="label">
+					<label>Quantity Configuration</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>40</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>				
+						<qty_button_text_color translate="label">
+							<label>Qty Buttons Text Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</qty_button_text_color>	
+						<qty_button_bkg_color translate="label">
+							<label>Qty Buttons Background Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</qty_button_bkg_color>		
+						<show_qty_in_categorypage translate="label">
+							<label>Show Qty input on Category Page</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_qty_in_categorypage>	
+						<qty_buttons_in_categorypage translate="label">
+							<label>Show Increase &amp; Decrease Qty buttons on Category Page</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>This option is available only if the Qty input is active.</comment>
+						</qty_buttons_in_categorypage>							
+						<qty_buttons_in_productpage translate="label">
+							<label>Show Increase &amp; Decrease Qty buttons on Product Page</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</qty_buttons_in_productpage>							
+						<show_qty_in_cartsidebar translate="label">
+							<label>Show Qty input in Cart Sidebar</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_qty_in_cartsidebar>	
+						<qty_buttons_in_cartsidebar translate="label">
+							<label>Show Increase &amp; Decrease Qty buttons in Cart Sidebar</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>This option is available only if the Qty input is active.</comment>
+						</qty_buttons_in_cartsidebar>
+						<qty_buttons_in_popup translate="label">
+							<label>Show Increase &amp; Decrease Qty buttons in Options Popup</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</qty_buttons_in_popup>
+						<qty_buttons_in_cartpage translate="label">
+							<label>Show Increase &amp; Decrease Qty buttons on Cart Page</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</qty_buttons_in_cartpage>		
+						<qty_buttons_in_wishlist translate="label">
+							<label>Show Increase &amp; Decrease Qty buttons on Wishlist Page</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</qty_buttons_in_wishlist>						
+					</fields>
+				</qty_configuration>
+				<dragdrop translate="label">
+					<label>Drag &amp; Drop Configuration</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>50</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>				
+						<enable_category_dragdrop translate="label">
+							<label>Enable Drag &amp; Drop</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_category_dragdrop>		
+						<dragme_text translate="label">
+							<label>Product image hover Text</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</dragme_text>
+						<dragme_text_color translate="label">
+							<label>Product image hover Text Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</dragme_text_color>
+						<dragme_text_bkg translate="label">
+							<label>Product image hover Background Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</dragme_text_bkg>							
+						<drop_effect translate="label">
+							<label>Drop Effect</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>ajaxcart/source_dropeffect</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</drop_effect>	
+						<droppable_highlight_area_color translate="label">
+							<label>Sidebar Highlight Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>This is the color of the Highlight that appears around the Cart/Wishlist/Compare sidebars when the Product is dragged over them. Click on input to select.</comment>
+						</droppable_highlight_area_color>
+						<tooltip_enable translate="label">
+							<label>Enable Tooltip</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tooltip_enable>	
+						<tooltip_cart_text translate="label">
+							<label>Cart sidebar Tooltip Text</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tooltip_cart_text>	
+						<tooltip_compare_text translate="label">
+							<label>Compare sidebar Tooltip Text</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tooltip_compare_text>
+						<tooltip_wishlist_text translate="label">
+							<label>Wishlist sidebar Tooltip Text</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tooltip_wishlist_text>			
+						<tooltip_text translate="label">
+							<label>Tooltip Text Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>11</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</tooltip_text>				
+						<tooltip_bkg translate="label">
+							<label>Tooltip Background Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>12</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</tooltip_bkg>							
+					</fields>
+				</dragdrop>			
+				<ultimo_configuration translate="label">
+					<label>Ultimo Theme Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>60</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<cart_sidebar_left translate="label">
+							<label>Display My Cart block in Left Sidebar</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>0</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cart_sidebar_left>
+						<cart_sidebar_right translate="label">
+							<label>Display My Cart block in Right Sidebar</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cart_sidebar_right>
+						<compare_sidebar_left translate="label">
+							<label>Display Compare block in Left Sidebar</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</compare_sidebar_left>
+						<compare_sidebar_right translate="label">
+							<label>Display Compare block in Right Sidebar</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</compare_sidebar_right>
+					</fields>
+				</ultimo_configuration>
+			</groups>
+        </ajaxcart>
+        <devinc_license translate="label" module="license">
+			<label>Licenses</label>
+			<tab>dd</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>100</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<ajaxcart translate="label">
+					<label>Ajax Cart License</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+                        <domains_label translate="label">
+							<frontend_type>label</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_label</frontend_model>
+    						<sort_order>0</sort_order>
+						  	<show_in_default>1</show_in_default>
+						  	<show_in_website>1</show_in_website>
+						  	<show_in_store>1</show_in_store>
+						</domains_label>
+                        <domains translate="label">
+							<frontend_type>text</frontend_type>
+							<frontend_model>license/adminhtml_system_config_form_multiline</frontend_model>
+						  	<backend_model>license/system_config_backend_license</backend_model>
+    						<sort_order>1</sort_order>
+						  	<show_in_default>1</show_in_default>
+						  	<show_in_website>0</show_in_website>
+						  	<show_in_store>0</show_in_store>
+						</domains>
+					</fields>
+				</ajaxcart>
+			</groups>
+        </devinc_license>
+    </sections>
+</config>

@@ -1,0 +1,23 @@
+.qty-control-box button { height: 15px !important; }
+
+.products-grid .actions { width: 100%; }
+.products-grid .btn-cart{ float: left; margin: 0; }
+.products-grid .ajaxcart-qty { margin: 0px 0 0 10px; float: left; }
+.ajaxcart-qty.display-onhover .qty-control-box{ top:0px; }
+
+#ajaxcart-actions { }
+#ajaxcart-actions button.button span{ height: 32px; line-height: 32px; padding: 0 5px; }
+.ajaxcart-actions button.button { margin-bottom: 1px; }
+
+.block-login .buttons-set .forgot { clear: left; } 
+.block-login .facebook-login { float: left; }
+
+.catalog-category-view #success-popup-content.popup-content.popup-content { padding: 0 20px 15px; }
+.popup-container .popup-content .product-options-bottom .add-to-cart { float: right; }
+.popup-container .popup-content .product-options-bottom .add-to-cart button.button{ float: right; margin:0 0 0 5px; }
+.popup-container .popup-content .product-options-bottom .add-to-cart #ajax-cart-please-wait{ margin-top: 13px; }
+.popup-container .popup-content .product-options-bottom .add-to-cart .qty-wrapper { margin-top: 9px; }
+.popup-container .popup-content .price-box-bundle { margin: 0 0 10px; }
+.popup-container .popup-content .product-options p.required { position: static; }
+
+.checkout-cart-index .item-options dd { clear: both; margin: 0 0 5px; }

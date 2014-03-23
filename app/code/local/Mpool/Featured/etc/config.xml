@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mpool_Featured>
+            <version>0.1.0</version>
+        </Mpool_Featured>
+    </modules>
+    <frontend>
+        <routers>
+            <featured>
+                <use>standard</use>
+                <args>
+                    <module>Mpool_Featured</module>
+                    <frontName>featured</frontName>
+                </args>
+            </featured>
+        </routers>
+        <layout>
+            <updates>
+                <featured>
+                    <file>mpoolfeatured.xml</file>
+                </featured>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <featured>
+                <class>Mpool_Featured_Block</class>
+            </featured>
+        </blocks>
+        <helpers>
+            <featured>
+                <class>Mpool_Featured_Helper</class>
+            </featured>
+        </helpers>
+         <models>
+            <featured>
+                <class>Mpool_Featured_Model</class>
+            </featured>
+        </models>
+    </global>
+    
+    <default>
+        <featured>
+            <general>
+                <active>0</active>
+                <price_visible>1</price_visible>
+            </general>
+            <cmspage>
+                <heading_block>Featured Products</heading_block>
+                <product_sort_by>random</product_sort_by>
+                <number_of_items>5</number_of_items>
+                <number_of_items_per_row>3</number_of_items_per_row>
+                <max_image_dimension>80</max_image_dimension>
+            </cmspage>
+            <standalone>
+                <heading>Featured Products</heading>
+                <layout>two_columns_right</layout>
+                <meta_title>Featured Products</meta_title>
+                <meta_description>Check out our great collection of Featured products</meta_description>
+                <meta_keywords>featured, products</meta_keywords>
+            </standalone>
+        </featured>
+    </default>
+</config> 

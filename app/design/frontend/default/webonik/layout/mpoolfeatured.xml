@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default translate="label">
+        <reference name="head">
+            <action method="addJs" ifconfig="featured/general/include_jquery">
+                <script>mpool/jquery-1.7.2.min.js</script>
+            </action>
+            <action method="addJs" ifconfig="featured/general/include_jquery">
+                <script>mpool/jquery-noconflict.js</script>
+            </action>
+            <action method="addJs">
+                <script>mpool/featured/featured.js</script>
+            </action>
+            <action method="addCss">
+                <script>css/mpool/featured/style.css</script>
+            </action>
+        </reference>
+    </default>
+</layout>

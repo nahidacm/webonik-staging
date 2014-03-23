@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Webonik_Catalog>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Webonik_Catalog>
+    </modules>
+</config>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Webonik_Checkout>
+            <version>0.0.1</version>
+        </Webonik_Checkout>
+    </modules>
+    <global>
+        <blocks>
+            <checkout>
+                <rewrite>
+                    <links>Webonik_Checkout_Block_Links</links>
+                </rewrite>
+            </checkout>
+        </blocks>
+    </global>
+</config>

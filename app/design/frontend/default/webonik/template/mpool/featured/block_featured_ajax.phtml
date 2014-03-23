@@ -1,0 +1,59 @@
+<?php
+/**
+ * @category     Mpool
+ * @package     Mpool Featured Products
+ * @author      Mahmudur Rahman, Mpool Team <nahidacm@gmail.com>
+ */
+?>
+<?php
+$_helper = $this->helper('catalog/output');
+$_productCollection = $this->getProductCollection();
+$_collectionSize = $_productCollection->getSize();
+
+//var_dump($_collectionSize);
+?>
+<?php 
+$_columnCount = $this->getRequest()->getParam('page_size');
+?>
+<?php $i = 0;
+foreach ($_productCollection as $_product): ?>
+
+        <?php if ($i++ % $_columnCount == 0): ?>
+        <ul class="products-grid ac-product-list-feature">
+    <?php endif ?>
+        <li class="item<?php if (($i - 1) % $_columnCount == 0): ?> first<?php elseif ($i % $_columnCount == 0): ?> last<?php endif; ?>">
+            
+				
+				<div class="product-image-container">
+					<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(166,183); ?>" width="166" height="183" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                	<span><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
+					</a>
+				</div>
+				
+				
+				<div class="product-price-container">
+					<?php echo $this->getPriceHtml($_product, true) ?>
+					
+						<?php if($_product->isSaleable()): ?>
+							<?php 
+								$currentUrl	=	$this->getAddToCartUrl($_product); 
+								$params		=	Mage::helper('ajaxcart')->getUrlParams($currentUrl);
+								$params['skip_popup'] = true;
+							?>
+							<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"></button>
+							<?php /*?><span class="ajaxcart-qty"><input type="text" class="input-text qty" value="1" id="qty-<?php echo $_product->getId(); ?>" name="qty-<?php echo $_product->getId(); ?>"><?php */?>
+						<?php else: ?>
+							<p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+						<?php endif; ?>
+					
+				</div>
+        </li>
+    <?php if ($i % $_columnCount == 0 || $i == $_collectionSize): ?>
+        </ul>
+    <?php endif ?>
+<?php endforeach ?>
+<script type="text/javascript">
+jQuery('.ac-product-list-feature li').each(function(){ 
+	var li = this;
+	ajaxcart.makeItemDraggable(li, 1);
+});

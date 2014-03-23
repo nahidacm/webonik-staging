@@ -1,0 +1,19 @@
+.featured-product-container ul{
+    list-style: none;
+    padding-left: 0;
+    border-bottom: none;
+}
+.featured-product-container ul ul{
+    list-style: none;
+}
+.featured-product-block .load-spinner {
+    background: url("image/ajax-loader.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
+    display: block;
+    overflow: hidden;
+    text-indent: -999999px;
+}
+
+.featured-product-block .load-more-div{
+    text-align: center;
+	width:330px;
+}

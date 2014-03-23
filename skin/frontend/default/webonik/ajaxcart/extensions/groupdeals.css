@@ -1,0 +1,3 @@
+.gd-normal-list .gd-info button.btn-cart.right { float:none !important; }
+.gd-normal-list .gd-info .target { max-width: 203px; width: 100%; }
+.gd-normal-list .gd-grid li.gd-item .gd-add-to-box .gd-top-box .gd-add-to-cart .ajaxcart-qty { display: none; }

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Webonik_Checkout>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Webonik_Checkout>
+    </modules>
+</config>

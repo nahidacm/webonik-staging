@@ -1,0 +1,4 @@
+.ac-product-list li .ajaxcart-qty { margin-top: 2px; }
+.groupdeals-product-list li .ajaxcart-qty { display: none; }
+#ac-cart-sidebar .block-cart #ajaxcart-actions.actions { display: block !important; background: url("../images/block_content_bg_left.png") repeat-y scroll left top rgba(0, 0, 0, 0); margin: 0; width: auto; border-top: 0; padding: 10px 13px 10px; }
+#ac-cart-sidebar .block-content li.item.last { border-bottom: 1px dashed #2E3133; }

@@ -1,0 +1,101 @@
+<?php
+/**
+ * @category     Mpool
+ * @package     Mpool Featured Products
+ * @author      Mahmudur Rahman, Mpool Team <nahidacm@gmail.com>
+ */
+?>
+<?php
+$_helper = $this->helper('catalog/output');
+$_productCollection = $this->getProductCollection();
+$_collectionSize = $_productCollection->getSize();
+//var_dump($_collectionSize);
+$_page_size = $this->getData('pagesize');
+
+$attributecode = $this->getData('attributecode');
+$attributevalue = $this->getData('attributevalue');
+$categoryid = $this->getData('categoryid');
+
+?>
+<div class="featured-product-block">
+<div class="featured-product-container">
+    <?php /*?><h3><?php echo $this->getData('title') ?></h3><?php */?>
+    <?php $_columnCount = $this->getData('pagesize'); // $this->getColumnCount(); ?>
+    <?php
+    $i = 0;
+
+    foreach ($_productCollection as $_product):
+        ?>
+            <?php if ($i++ % $_columnCount == 0): ?>
+            <ul class="products-grid">
+    <?php endif ?>
+            <li class="item<?php if (($i - 1) % $_columnCount == 0): ?> first<?php elseif ($i % $_columnCount == 0): ?> last<?php endif; ?>">
+               
+				
+				<div class="product-image-container">
+					<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(166,183); ?>" width="166" height="183" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                	<span><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
+					</a>
+				</div>
+				
+				
+				<div class="product-price-container">
+					<?php echo $this->getPriceHtml($_product, true) ?>
+					
+						<?php if($_product->isSaleable()): ?>
+							<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"></button>
+							<span class="ajaxcart-qty"><input type="text" class="input-text qty" value="1" id="qty-<?php echo $_product->getId(); ?>" name="qty-<?php echo $_product->getId(); ?>">
+						<?php else: ?>
+							<p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+						<?php endif; ?>
+					
+				</div>
+            </li>
+        <?php if ($i % $_columnCount == 0 || $i == $_collectionSize): ?>
+            </ul>
+        <?php endif ?>
+<?php endforeach ?>
+    </div>
+    <div class="load-more-div">
+        <a href="#" class="load-more">Load More</a>
+    </div>
+</div>
+
+<?php
+if ($_collectionSize > 0) {
+    $total_page_count = ceil($_collectionSize / $_page_size);
+}
+?>
+<script type="text/javascript">
+    var total_page_count = <?php echo $total_page_count ?>;
+    var page_size = <?php echo $_page_size ?>;
+    var current_page = 2;
+    
+    var req_url = '<?php echo Mage::getUrl('featured/index/ajax') ?>';
+    req_url +='?page_size='+page_size;
+    
+    <?php if($attributecode){ ?>
+        req_url += '&attributecode=<?php echo $attributecode ?>';
+    <?php } ?>
+    <?php if($attributecode){ ?>
+        req_url += '&attributevalue=<?php echo $attributevalue ?>';
+    <?php } ?>
+    <?php if($categoryid){ ?>
+        req_url += '&categoryid=<?php echo $categoryid ?>';
+    <?php } ?>
+        
+    jQuery('.load-more').bind('click', function(e) {
+        e.preventDefault();
+        url = req_url+'&current_page='+current_page;;
+        jQuery('.load-more').addClass('load-spinner');
+        jQuery.ajax({url: url, success: function(result) {
+                jQuery(".featured-product-container").append(result);
+                jQuery('.load-more').removeClass('load-spinner');
+                current_page++;
+                if(current_page>total_page_count){
+                    jQuery('.load-more').hide();
+                }
+            }});
+    });
+
+</script>
