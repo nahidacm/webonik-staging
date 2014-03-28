@@ -1,0 +1,77 @@
+<div id="easycheckout-review-loadaction" style="display:block;" class="order">
+    <?php echo $this->getChildHtml('info') ?>
+</div>
+<div id="checkout-review-submit">  
+            <p style="clear:both;"></p>
+ <?php echo $this->getChildHtml('agreements') ?>
+    <?php if($news=Mage::helper('easycheckout')->getEasycheckoutConfig('general/enable_newsletter')): ?>
+        <p class="easycheckout-agreement-p">  <input <?php if($news =='1'){echo "checked='checked'";}?> type="checkbox" name="is_subscribed" value="1" title="<?php echo $this->__('Sign Up for Newsletter'); ?>" class="checkbox"  id="newsletter" /><label for="newsletter"><?php echo $this->__('Sign Up for Newsletter'); ?></label></p>
+    <?php endif; ?> 
+   <?php if(Mage::helper('easycheckout')->getEasycheckoutConfig('quickheared/enable_quickheared')): ?>
+       <?php echo $this->getChildHtml('quickheard'); ?>
+    <?php endif; ?>    
+    <?php if(Mage::helper('easycheckout')->getEasycheckoutConfig('general/enable_comments')): ?>
+       <div style="padding-bottom:10px;"><div class="easycheckout-comments-left"> <p class="easycheckout-agreement-p">
+            <label for="comments"><?php echo Mage::helper('easycheckout')->getEasycheckoutConfig('general/label_comments'); ?></label><br />
+            <textarea cols="46" rows="6" name="easycheckout_comment" value="" title="<?php echo $this->__('Enter Special Comments'); ?>"  id="comments" ></textarea>
+        </p>
+		</div>
+    <?php endif; ?>
+   <?php if(Mage::helper('easycheckout')->getEasycheckoutConfig('general/enable_coupon')): ?>
+                <?php echo $this->getChildHtml('coupon') ?> </div>
+   <?php endif; ?>
+    <div id="onepage-checkout-shipping-method-additional-load">
+        <?php echo $this->getChildHtml('additional') ?>
+    </div>
+      <?php if(Mage::helper('easycheckout')->getEasycheckoutConfig('general/enable_detail')): ?>
+        <div class="easycheckout-agreement-p" id="easycheckout_billingdetail" style="display:none;">
+            <div class="easycheout_headings easycheckout-title"  <?php echo "style='". Mage::helper('easycheckout')->getEasycheckoutskin() . "'"; ?>>
+                <span id="easycheckout-number" class="step-review"></span>
+                <h3 <?php echo "style='". Mage::helper('easycheckout')->getEasycheckoutHeadingCSS() . "'"; ?>><?php echo $this->__('Recheck Your Billing Detail') ?></h3>
+            </div>
+            <?php echo $this->getChildHtml('billingdetail') ?>
+        </div>
+    <?php endif; ?>
+    <div class="buttons-set" id="review-buttons-container">
+        <p><?php echo $this->__('Forgot an Item?') ?> <a href="<?php echo $this->getUrl('checkout/cart') ?>"><?php echo $this->__('Edit Your Cart') ?></a></p>
+   <?php if(Mage::getStoreConfig('easycheckout/general/enable_terms')): ?>
+   <p>
+   <input type="checkbox" name="terms" value="1" title="terms and conditions" class="checkbox required-entry"/>I Accept The<a href="#" id="terms">Terms and Conditions</a>
+     <div id="termscontent" class="termscontent" style="display:none;"></div>	 
+	   <div id="contentview" class="contentview" style="display:none;">
+		<div class="contentview_close" >
+		<div id="contentview_btn"><img src="<?php echo $this->getSkinUrl('images/easycheckout/closebox.png') ?>" /></div></div>
+	   <p><h5>Terms and Conditions</h5><br />
+	   <?php echo Mage::getStoreConfig('easycheckout/general/conditions') ?>
+	   </p>	   
+	   </div>
+   </p>
+  <?php endif; ?>
+		<div class="margin-top">             
+            <button type="button" title="<?php echo $this->__('Place Order') ?>" style="<?php echo Mage::helper('easycheckout')->getEasycheckoutbuttonCSS(); ?>" class="place_order_btn easycheout_bg" onclick="billing.save_review();"><span><span><?php echo $this->__('Place Order') ?></span></span></button>
+        </div>
+    </div>
+    <script type="text/javascript">
+    //<![CDATA[
+        var Review_Loading_Text='<?php echo Mage::helper('easycheckout')->getEasycheckoutLoading('review')?Mage::helper('easycheckout')->getEasycheckoutLoading('review'):'Updating Review Order Data';?>';
+        var Review_Submitting_Text='<?php echo Mage::helper('easycheckout')->getEasycheckoutLoading('order')?Mage::helper('easycheckout')->getEasycheckoutLoading('order'):'Submitting Your order Now';?>';        
+        billing.reviewinit('onestepcheckout-form', '<?php echo $this->getUrl('checkout/onestep/saveOrder') ?>', $('checkout-agreements'));
+		var review_url='<?php echo $this->getUrl('checkout/onestep/saveOrder') ?>';
+       
+	   Event.observe('terms', 'click', show);
+	   Event.observe('contentview_btn', 'click', hide);
+	   function show()
+	   {
+	       Element.show("termscontent");	      
+		   Element.show("contentview");
+	   }	 
+	  function hide()
+	   {   
+	       Element.hide("termscontent");	      
+		   Element.hide("contentview");
+	   }
+	
+	
+	//]]>
+    </script>
+</div>

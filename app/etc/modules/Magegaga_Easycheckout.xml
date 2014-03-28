@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Magegaga_Easycheckout>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Magegaga_Easycheckout>
+    </modules>
+</config> 

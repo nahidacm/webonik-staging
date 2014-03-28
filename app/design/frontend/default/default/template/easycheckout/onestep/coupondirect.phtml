@@ -1,0 +1,23 @@
+<div id="easycheckout-coupon-form" class="left" >
+    
+    <div id="easycheckout-coupon-form-div">
+        <div id="easycheckout-coupon-message" class="easycheckout-error-message clearboth"></div>
+            <div class="coupon_form_div right clearboth"><div id="inner_loader_coupon" class="inner_loader coupon-direct" style="display:none;"></div>
+            <input type="hidden" name="remove" id="remove-coupone" value="0" />
+            <div id="inner_loader_coupon" class="inner_loader" style="display:none;"></div>
+            <input class="input-text"  id="coupon_code" name="coupon_code" value="<?php echo $this->htmlEscape($this->getCouponCode()) ?>" />
+            <input type="button" class="notopmargins coup_button easycheout_bg" style="<?php echo Mage::helper('easycheckout')->getEasycheckoutbuttonCSS(); ?>" onclick="coupon.coupondirect(false)" value="<?php echo $this->__('Apply Coupon'); ?>" title="<?php echo $this->__('Apply Coupon'); ?>" />
+            <input type="button" id="remove_coupon" class="notopmargins coup_button easycheout_bg" style="<?php echo Mage::helper('easycheckout')->getEasycheckoutbuttonCSS(); ?><?php if(!strlen($this->getCouponCode())){echo "display:none";}?>" onclick="coupon.coupondirect(true)" value="<?php echo $this->__('Cancel Coupon'); ?>" title="<?php echo $this->__('Cancel Coupon'); ?>"/>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    //<![CDATA[
+      //  var forgot_loading_text='<?php echo Mage::helper('easycheckout')->getEasycheckoutLoading('forgotpass')?Mage::helper('easycheckout')->getEasycheckoutLoading('forgotpass'):'Reseting Password';?>';
+        var coupon = new Coupon('<?php echo $this->getUrl('checkout/onestep/couponPost') ?>');
+    //]]>
+    
+</script>

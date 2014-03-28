@@ -1,0 +1,23 @@
+<?php if (!$this->getAgreements()) return; ?>
+<?php foreach ($this->getAgreements() as $_a): ?>
+    <p class="easycheckout-agreement-p">
+        <input class="checkbox required-entry" type="checkbox" name="agreement[<?php echo $_a->getId()?>]" value="1" title="<?php echo $this->htmlEscape($_a->getCheckboxText()) ?>" class="checkbox" /><label for="agreement-<?php echo $_a->getId()?>"><?php echo $this->htmlEscape($_a->getCheckboxText()) ?></label>
+    <a href="#" class="demo-btn" title="<?php echo $_a->getName() ?>" onclick="easycheckout_agreement.show('<?php echo $_a->getId(); ?>')"><?php echo $_a->getName() ?></a>
+    </p>
+   
+        <div id="<?php echo 'QC-AG-Bk'. $_a->getId() ;?>" class="easycheckout-agreement-back" style="visibility:hidden;" ></div>
+        <div id="<?php echo 'QC-AG-CO' . $_a->getId() ;?>" class="easycheckout-agreement-content" style="display:none;">
+            <div style="<?php echo Mage::helper('easycheckout')->getWidth() ?>">
+                <a href="#" onclick="easycheckout_agreement.hide('<?php echo $_a->getId();?>')" class="popup_closer"></a>
+                <h1><?php echo $_a->getName() ?></h1>
+                <div class="easycheckout-agreement-content-p">
+                    <?php if ($_a->getIsHtml()){echo $_a->getContent();}else{echo nl2br($this->htmlEscape($_a->getContent()));} ?>
+                </div>
+            </div>
+        </div>
+
+<?php endforeach ?>
+
+<script type="text/javascript" charset="utf-8">
+  var easycheckout_agreement=new Easycheckout_Agreements();
+</script>

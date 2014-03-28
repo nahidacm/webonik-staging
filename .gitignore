@@ -1,6 +1,5 @@
 /app/code/core
 /app/design/frontend/default/blank
-/app/design/frontend/default/default
 /app/design/frontend/default/iphone
 /app/design/frontend/default/modern
 /downloader
@@ -14,7 +13,6 @@
 /skin/frontend/default/modern
 /skin/frontend/default/blank
 /skin/frontend/default/blue
-/skin/frontend/default/default
 /skin/frontend/default/french
 /skin/frontend/default/german
 /skin/frontend/default/iphone
@@ -31,3 +29,8 @@
 /error_log
 /favicon.ico
 /get.php
+/LICENSE.html
+/LICENSE.txt
+/LICENSE_AFL.txt
+/app/.htaccess
+/app/Mage.php

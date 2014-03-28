@@ -171,14 +171,17 @@
 /* Qty Box */
 .ajaxcart-qty { margin:0 0 0 5px; position:relative; display:inline-block; }
 .block-cart .product-name { margin:0 0 5px 0; }
-.sidebar .ajaxcart-qty { margin:0 0 0 0; height:40px}
+.sidebar .ajaxcart-qty { 
+    margin:0 0 0 0; 
+    /*height:40px;*/
+}
 .checkout-cart-index .ajaxcart-qty { margin:0 0 0 0; }
 .wishlist-index-index .ajaxcart-qty { margin:0 0 4px 0; }
 .catalog-product-view .ajaxcart-qty { float:left; margin:0 5px 0 0; }
 .product-options-bottom .ajaxcart-qty{ float:left; margin:0 5px 0 0; }
 .ajaxcart-qty .qty{ padding-right:10px; margin: 0; min-height:10px; padding-top:8px}
 .qty-control-box { position: absolute; right: 0px; top: 1px; *top: 2px; }
-.qty-control-box button { border-radius: 0px !important; background:#A23535; width:18px !important; border:0;cursor:pointer; display:block; }
+.qty-control-box button { border-radius: 0px !important; background:#A23535; width:18px !important; border:0;cursor:pointer; display:block; height: 12px; }
 .qty-control-box button.button { float:none; }
 .qty-control-box button span {background:#A23535; color:#fff; text-decoration:none; display:block; font-size:9px; height:10px; text-align:center; line-height:9px; border:0; padding:0 4px; margin:0; cursor:pointer; font-weight:normal; font-family:Arial;  }
 .qty-control-box button.disabled { border-color:#bbb !important; background:#bbb !important; }

@@ -1,0 +1,190 @@
+<div class="onestepcheckout-checkout-method">
+    <a href="javascript:void(0);" onclick="quicklogin.show();"><?php echo Mage::helper('easycheckout')->getEasycheckoutLogin(); ?></a>
+</div>
+<div id="easycheckout-login" class="easycheckout-login" style="visibility:hidden;" onclick="quicklogin.hide();"></div>
+<div id="easycheckout-login-form" style="display:none;">
+    <!--<div id="easycheckout-login-form" class="login-form">-->
+        <a href="javascript:void(0);" onclick="quicklogin.hide();" title="<?php echo $this->__('Close') ?>" class="popup_closer"></a>
+          <div id="easycheckout-login-form-div">
+       <!--<div class="login_dialogBox">-->
+            <h1><?php echo $this->__('Login') ?></h1><br />
+            <div id="inner_loader" class="inner_loader" style="display:none;"></div>
+    	<p><?php echo $this->__('Please login below') ?></p>
+        <div id="easycheckout-error-message" class="easycheckout-error-message"></div>
+        <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+	
+	    <form id="login-form" action="<?php echo $this->getPostAction() ?>" method="post">
+		<div class="login_form_div">
+		    <label><?php echo $this->__('Email Address') ?></label>
+		    <input type="text" class="easycheckout-login-form_input required-entry validate-email" id="login-email" name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" />
+		   
+		
+		    <label><?php echo $this->__('Password') ?></label>
+		      <input type="password" class="easycheckout-login-form_input set_margin required-entry" id="login-password" name="login[password]" />
+		    
+		   <a  href="#" onclick="toggleit('easycheckout-login-form-div','easycheckout-forgotpass-div')"><?php echo $this->__('Forgot your password?') ?></a>
+		
+		    <input type="button" class="loging_btn easycheout_bg" style="<?php echo Mage::helper('easycheckout')->getEasycheckoutbuttonCSS(); ?>" onclick="quicklogin.login()" value="<?php echo $this->__('Login'); ?>"/>
+		</div>
+	    </form>
+	</div>
+	
+	<div id="easycheckout-forgotpass-div" style="display:none;">
+		<h1><?php echo $this->__('Forgot Your Password?') ?></h1>
+		<div id="inner_loader_forgotpass" class="inner_loader" style="display:none;"></div>
+	      <div id="easycheckout-forgotpass-error-message" class="easycheckout-error-message"></div>
+        <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+	 <p><?php echo $this->__('Please enter your email below and we will send you a new password.') ?></p>
+	    <form action="" method="post" id="forgotpass-form">
+		<div class="login_form_div">
+		    <label><?php echo $this->__('Email Address') ?></label>
+			<input type="text" name="email" alt="email" id="email_address" class="easycheckout-login-form_input required-entry validate-email" value="<?php echo $this->htmlEscape($this->getEmailValue()) ?>" />
+		    <p class="back-link"><a href="#" onclick="toggleit('easycheckout-forgotpass-div','easycheckout-login-form-div')"><small>&laquo; </small><?php echo $this->__('Back to Login') ?></a></p>
+		    <input type="button" class="loging_btn easycheout_bg" style="<?php echo Mage::helper('easycheckout')->getEasycheckoutbuttonCSS(); ?>" onclick="forgotpass.forgotpass()" value="<?php echo $this->__('Submit'); ?>"/>
+		</div>
+	    </form>
+	  
+	</div>
+</div>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var Login=Class.create();
+    Login.prototype={	    
+        initialize:function(a){
+		    //alert("in login");
+            this.loginUrl=a;
+            this.loadWaitingLogin=false;
+            this.response=[]
+        },
+        show:function(){
+            $("easycheckout-login").setStyle({
+                opacity:0,
+                visibility:"visible"
+            });
+            new Effect.Opacity("easycheckout-login",{
+                duration:0.9,from:0,to:0.8
+            });
+            Element.show("easycheckout-login-form")
+        },
+        hide:function(){
+            new Effect.Opacity("easycheckout-login",{
+                duration:0.9,
+                from:0.8,to:0,
+                afterFinish:function(){
+                    $("easycheckout-login").setStyle({
+                        opacity:0,visibility:"hidden"
+                    })
+                }
+            });
+            Element.hide("easycheckout-login-form")
+        },
+        login:function(){
+            var a=$("login-form"); 
+            if((a=new Validation(a))&&a.validate()){
+                a=$("login-email").value;
+                var b=$("login-password").value;
+                this.setLoadWaitingLogin(true);
+                new Ajax.Updater('',this.loginUrl,{
+                    parameters:{username:a,password:b},
+                    method:"post",
+                    onComplete:this.resetLoadWaitingLogin,
+                    onSuccess:this.processRespone.bind(this),
+                    onFailure:easycheckout.ajaxFailure.bind(this)
+                    })
+                }
+        },
+        processRespone:function(a){
+            var b;
+            if(a&&a.responseText)
+                try{
+                    b=a.responseText.evalJSON()
+					//alert("in response login");
+					//alert(a.responseText);
+					//alert(b);
+                }catch(c){
+                    b={}
+                }
+            if(b.error){
+                
+                $("easycheckout-error-message").update(b.error);
+                this.resetLoadWaitingLogin()
+            }else
+            location.href=""
+        },
+        setLoadWaitingLogin:function(a){
+            if(this.loadWaitingLogin==a){
+                
+                Element.hide("inner_loader");
+                Element.show("easycheckout-login-form")
+            }else{
+                $('inner_loader').update(login_loading_text);
+                Element.show("inner_loader");
+                Element.show("easycheckout-login-form")
+            }
+        },
+        resetLoadWaitingLogin:function(){
+            this.setLoadWaitingLogin(false)
+        }
+    };
+var login_loading_text='<?php echo Mage::helper('easycheckout')->getEasycheckoutLoading('login')?Mage::helper('easycheckout')->getEasycheckoutLoading('login'):'Validating';?>';
+    var quicklogin = new Login('<?php echo $this->getUrl('checkout/onestep/loginPost') ?>');
+    function toggleit(a,b){
+	Element.hide(a)
+	Element.show(b)
+	
+    }
+	
+
+//]]>
+</script>
+  <script type="text/javascript">
+	    //<![CDATA[
+		var Forgotpass=Class.create();
+    Forgotpass.prototype={
+        initialize:function(a){
+            this.forgotpassUrl=a;
+            this.response=[]
+        },
+        forgotpass:function(){
+            var a=$("forgotpass-form");
+            if((a=new Validation(a))&&a.validate()){
+                a=$("email_address").value;
+                this.setLoadWaitingforgot(false);
+                new Ajax.Updater('',this.forgotpassUrl,{
+                    parameters:{email:a},
+                    method:"post",
+                    onComplete:this.setLoadWaitingforgot(false),
+                    onSuccess:this.processRespone.bind(this),
+                    onFailure:easycheckout.ajaxFailure.bind(this)
+                    })
+                }
+        },
+        processRespone:function(a){
+            var b;
+            if(a&&a.responseText)
+                try{
+                    b=a.responseText.evalJSON()
+                }catch(c){
+                    b={}
+                }
+            if(b.error){
+                $("easycheckout-forgotpass-error-message").update(b.error);
+                this.setLoadWaitingforgot(true)
+            }
+        },
+        setLoadWaitingforgot:function(a){
+            if(a){
+                
+                Element.hide("inner_loader_forgotpass");
+            }else{
+                $('inner_loader_forgotpass').update(forgot_loading_text);
+                Element.show("inner_loader_forgotpass");
+            }
+        }
+    };
+	    var forgot_loading_text='<?php echo Mage::helper('easycheckout')->getEasycheckoutLoading('forgotpass')?Mage::helper('easycheckout')->getEasycheckoutLoading('forgotpass'):'Reseting Password';?>';
+		var forgotpass = new Forgotpass('<?php echo $this->getUrl('checkout/onestep/forgotpassPost') ?>');
+	    //]]>
+ </script>

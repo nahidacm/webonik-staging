@@ -1,0 +1,137 @@
+<div id="easycheckout-coupon" class="easycheckout-coupon" style="visibility:hidden;"></div>
+<div id="easycheckout-coupon-form" class="coupon-form" style="display:block;">
+    <!--<a href="javascript:void(0);" onclick="coupon.hide();"  class="div_closer"></a>-->
+    <div id="easycheckout-coupon-form-div"> 
+    <h4><?php echo $this->__('Coupon Codes') ?></h4>
+    <div id="inner_loader_base" style="display:none;"></div>
+	<div id="inner_loader_coupon" class="inner_loader" style="display:none;"></div>
+    <p><?php echo $this->__('Enter your coupon code if you have one.') ?></p>
+    <div id="easycheckout-coupon-message" class="easycheckout-error-message"></div>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+        <div id="coupon_form" method="post">
+            <div class="coupon_form_div">
+                <input type="hidden" name="remove" id="remove-coupone" value="0" />
+                <input class="input-text"  id="coupon_code" name="coupon_code" value="<?php echo $this->htmlEscape($this->getCouponCode()) ?>" />
+                <div style="">
+                <input type="button" class="left coup_button easycheout_bg" style="<?php echo Mage::helper('easycheckout')->getEasycheckoutbuttonCSS(); ?>" onclick="coupon.coupon(false)" value="<?php echo $this->__('Apply Coupon'); ?>" title="<?php echo $this->__('Apply Coupon'); ?>" />
+                   <input type="button" id="remove_coupon" class="coup_button easycheout_bg" style="<?php echo Mage::helper('easycheckout')->getEasycheckoutbuttonCSS(); ?><?php if(!strlen($this->getCouponCode())){echo "display:none";}?>" onclick="coupon.coupon(true)" value="<?php echo $this->__('Cancel Coupon'); ?>" title="<?php echo $this->__('Cancel Coupon'); ?>"/>
+            </div></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+	 var Coupon=Class.create();
+    Coupon.prototype={
+        initialize:function(a){
+            this.CouponUrl=a;
+            this.response=[]
+        },
+	show:function(){
+	    this.reload=false;
+            $("easycheckout-coupon").setStyle({
+                opacity:0,
+                visibility:"visible"
+            });
+            new Effect.Opacity("easycheckout-coupon",{
+                duration:0.9,from:0,to:0.8
+            });
+            Element.show("easycheckout-coupon-form")
+        },
+        hide:function(){
+            new Effect.Opacity("easycheckout-coupon",{
+                duration:0.9,
+                from:0.8,to:0,
+                afterFinish:function(){
+                    $("easycheckout-coupon").setStyle({
+                        opacity:0,visibility:"hidden"
+                    })
+                }
+            });
+            Element.hide("easycheckout-coupon-form")
+        },
+        coupon:function(remove){		
+	    var b=0;
+	    if(remove){		
+		$("coupon_code").removeClassName('required-entry');
+		b="1";
+	    }
+	    else{		
+		$("coupon_code").addClassName('required-entry');
+	    }
+            var c=$("coupon_form");	        
+           if((c=new Validation(c))&&c.validate()){		    
+                c=$("coupon_code").value;				
+                this.setLoadWaitingcoupon(false);
+                new Ajax.Request(this.CouponUrl,{
+                    parameters:{coupon_code:c,remove:b},
+                    method:"post",
+                    onComplete:this.setLoadWaitingcoupon(false),
+                    onSuccess:this.processRespone.bind(this),
+                    onFailure:easycheckout.ajaxFailure.bind(this)
+                    })
+              }
+        },
+	coupondirect:function(remove){
+	    var b=0;
+	    if(remove){
+		b="1";
+	    }
+                c=$("coupon_code").value.trim();
+		if(c !=''){this.setLoadWaitingcoupon(false);
+                new Ajax.Request(this.CouponUrl,{
+                    parameters:{coupon_code:c,remove:b},
+                    method:"post",
+                    onComplete:this.setLoadWaitingcoupon(false),
+                    onSuccess:this.processRespone.bind(this),
+                    onFailure:easycheckout.ajaxFailure.bind(this)
+                    })
+		}
+                
+        },
+        processRespone:function(a){		
+            var b;
+            if(a&&a.responseText)
+                try{
+                    b=a.responseText.evalJSON()
+                }catch(c){
+                    b={}
+                }
+		this.setLoadWaitingcoupon(true);
+
+            if(b.error){			 
+		    Element.hide("remove_coupon")
+		
+		$("easycheckout-coupon-message").setStyle({
+		    color:"red"
+		});
+		
+               $("easycheckout-coupon-message").update(b.error);
+		if(b.reload==true)
+		billing.saveCountry();
+            }
+	    else if(b.success){		
+		 Element.show("remove_coupon")
+		$("easycheckout-coupon-message").setStyle({
+		    color:"green"
+		});
+                $("easycheckout-coupon-message").update(b.success);
+		if(b.reload==true)
+		billing.saveCountry();
+            }
+        },
+        setLoadWaitingcoupon:function(a){
+            if(a){
+			    $("inner_loader_base").hide(); 
+                Element.hide("inner_loader_coupon");
+            }else{
+				$("inner_loader_base").show(); 
+                Element.show("inner_loader_coupon");
+            }
+        }
+    };
+        var coupon = new Coupon('<?php echo $this->getUrl('checkout/onestep/couponPost') ?>');
+    //]]>
+    
+</script>
