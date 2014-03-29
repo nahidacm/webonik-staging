@@ -21,6 +21,11 @@ var inMobileView;
             j('.total-products span').text(cartItemQuantity);
         };
 
+        var footerTop = j('.footer-container').offset().top,
+            jCart = j(".quick-cart-container"),
+            jProductsList = j('.products-table'),
+            cartHeight, cartBottom;
+
         if (!inMobileView) {
             var scrollPos = 0;
             j(window).scroll(function() {
@@ -33,6 +38,13 @@ var inMobileView;
                 } else {
                     j(".quick-cart-container").css("top", "0px");
                 }
+
+                cartHeight = jCart.outerHeight();
+                cartBottom = jCart.offset().top + cartHeight + 6;
+
+                jCart.height(jCart.height() - (cartBottom - footerTop));
+                jProductsList.height(jProductsList.height() - (cartBottom - footerTop));
+                j(window).resize();
             });
         }
 
@@ -118,7 +130,7 @@ var inMobileView;
         var productImageContainer, productImage, containerWidth, containerHeight, imgWidth, imgHeight, imgTop, imgLeft;
 
         if (!inMobileView) {
-            j('.product').mouseenter(function() {
+            j('.products-grid .item').mouseenter(function() {
                 productImage = j(this).find('img');
                 imgWidth = productImage.width();
                 imgHeight = productImage.height();
@@ -170,7 +182,7 @@ var inMobileView;
 
 })(jQuery);
 
-(function(j) {
+;(function(j) {
     j(function() {
         j('.header').wrapInner('<div class="header-content"></div>');
     });
