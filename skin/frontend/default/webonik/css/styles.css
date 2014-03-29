@@ -1857,7 +1857,8 @@ body{ font:15px 'Droid Sans' !important; background-color:#962929;}
 .header #ac-links li a.top-link-checkout span {   background-position: -71px 0}
 .header #ac-links li.last span {   background-position: -96px 0px;}
 .header #ac-links li:hover a span{ background-position:0 -24px}
-.header #ac-links li.myaccount a:hover span {   background-position: -23px -24px;}
+/*.header #ac-links li.myaccount a:hover span {   background-position: -23px -24px;}*/
+.header #ac-links li.myaccount:hover span {   background-position: -23px -24px;}
 
 .header #ac-links li:hover a.top-link-cart span {   background-position: -46px -22px}
 .header #ac-links li:hover a.top-link-checkout span {   background-position: -71px -24px}
