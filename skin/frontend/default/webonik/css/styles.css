@@ -336,7 +336,7 @@ p.required { font-size:11px; text-align:right; color:#EB340A; }
 .success-msg { 
     border-color:#446423; 
     background-color:#eff5ea; 
-    /*background-image:url(../images/i_msg-success.gif);*/ 
+    background-image:url(../images/i_msg-success.gif); 
     color:#3d6611; 
 }
 .note-msg,
@@ -491,7 +491,7 @@ tr.summary-details-excluded { font-style:italic; }
 .link-wishlist { color:#dc6809 !important; font-weight:bold; }
 .link-reorder { font-weight:bold; color:#dc6809 !important; }
 .link-compare { font-weight:bold; }
-.link-print { /*background:url(../images/i_print.gif) 0 2px no-repeat; padding:2px 0 2px 25px;*/ font-weight:bold; color:#dc6809; }
+.link-print { background:url(../images/i_print.gif) 0 2px no-repeat; padding:2px 0 2px 25px; font-weight:bold; color:#dc6809; }
 .link-rss { background:url(../images/i_rss.gif) 0 2px no-repeat; padding-left:18px; line-height:14px; white-space:nowrap; }
 .btn-remove  { display:block; width:11px; height:11px; font-size:0; line-height:0; background:url(../images/btn_remove.gif) 0 0 no-repeat; text-indent:-999em; overflow:hidden; }
 .btn-previous  { display:block; width:11px; height:11px; font-size:0; line-height:0; background:url(../images/btn_previous.gif) 0 0 no-repeat; text-indent:-999em; overflow:hidden; }

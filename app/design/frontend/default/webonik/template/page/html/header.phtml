@@ -27,6 +27,11 @@
  * @var Mage_Page_Block_Html_Header $this
  */
 ?>
+<?php if(!$this->getIsHomePage()){ ?>
+<style>
+    .col-main{margin-top: 10px; padding-top: 10px; border-top: 1px solid #CCC;}
+</style>
+<?php } ?>
 <div class="header-container">
     <div class="header">
         <div class="quick-access">
