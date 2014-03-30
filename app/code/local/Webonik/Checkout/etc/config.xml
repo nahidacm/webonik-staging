@@ -7,11 +7,11 @@
     </modules>
     <global>
         <blocks>
-            <checkout>
+<!--            <checkout>
                 <rewrite>
                     <links>Webonik_Checkout_Block_Links</links>
                 </rewrite>
-            </checkout>
+            </checkout>-->
         </blocks>
     </global>
 </config>

@@ -22,30 +22,32 @@ var inMobileView;
         };
 
         var footerTop = j('.footer-container').offset().top,
-            jCart = j(".quick-cart-container"),
-            jProductsList = j('.products-table'),
-            cartHeight, cartBottom;
+                jCart = j(".quick-cart-container"),
+                jProductsList = j('.products-table'),
+                cartHeight, cartBottom;
 
-        if (!inMobileView) {
-            var scrollPos = 0;
-            j(window).scroll(function() {
-                scrollPos = j(window).scrollTop();
+        if (jCart.length > 0) {
+            if (!inMobileView) {
+                var scrollPos = 0;
+                j(window).scroll(function() {
+                    scrollPos = j(window).scrollTop();
 
-                if (scrollPos > 44) {
-                    if (!inMobileView) {
-                        j(".quick-cart-container").css("top", (scrollPos - 44).toString() + "px");
+                    if (scrollPos > 44) {
+                        if (!inMobileView) {
+                            j(".quick-cart-container").css("top", (scrollPos - 44).toString() + "px");
+                        }
+                    } else {
+                        j(".quick-cart-container").css("top", "0px");
                     }
-                } else {
-                    j(".quick-cart-container").css("top", "0px");
-                }
 
-                cartHeight = jCart.outerHeight();
-                cartBottom = jCart.offset().top + cartHeight + 6;
+                    cartHeight = jCart.outerHeight();
+                    cartBottom = jCart.offset().top + cartHeight + 6;
 
-                jCart.height(jCart.height() - (cartBottom - footerTop));
-                jProductsList.height(jProductsList.height() - (cartBottom - footerTop));
-                j(window).resize();
-            });
+                    jCart.height(jCart.height() - (cartBottom - footerTop));
+                    jProductsList.height(jProductsList.height() - (cartBottom - footerTop));
+                    j(window).resize();
+                });
+            }
         }
 
 
@@ -183,8 +185,11 @@ var inMobileView;
 })(jQuery);
 
 
-;(function(j) {
+;
+(function(j) {
     j(function() {
         j('.header').wrapInner('<div class="header-content"></div>');
+
+        j('.top-link-cart').parent('li').hide();
     });
 })(jQuery);

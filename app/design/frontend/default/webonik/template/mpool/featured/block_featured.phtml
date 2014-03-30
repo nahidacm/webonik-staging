@@ -89,12 +89,16 @@ if ($_collectionSize > 0) {
         url = req_url+'&current_page='+current_page;;
         jQuery('.load-more').addClass('load-spinner');
         jQuery.ajax({url: url, success: function(result) {
-                jQuery(".featured-product-container").append(result);
+                jQuery(".featured-product-container ul.products-grid").append(result);
                 jQuery('.load-more').removeClass('load-spinner');
                 current_page++;
                 if(current_page>total_page_count){
                     jQuery('.load-more').hide();
                 }
+                //Change add to cart button
+		jQueryAC('button').livequery(function(){ 	
+			ajaxcart.updateButton(this);
+		});	
             }});
     });
 

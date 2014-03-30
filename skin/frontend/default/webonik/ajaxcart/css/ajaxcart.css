@@ -179,7 +179,7 @@
 .wishlist-index-index .ajaxcart-qty { margin:0 0 4px 0; }
 .catalog-product-view .ajaxcart-qty { float:left; margin:0 5px 0 0; }
 .product-options-bottom .ajaxcart-qty{ float:left; margin:0 5px 0 0; }
-.ajaxcart-qty .qty{ padding-right:10px; margin: 0; min-height:10px; padding-top:8px}
+.ajaxcart-qty .qty{ padding-right:10px; margin: 1px 0; min-height:10px; padding-top:4px; padding-bottom: 4px}
 .qty-control-box { position: absolute; right: 0px; top: 1px; *top: 2px; }
 .qty-control-box button { border-radius: 0px !important; background:#A23535; width:18px !important; border:0;cursor:pointer; display:block; height: 12px; }
 .qty-control-box button.button { float:none; }

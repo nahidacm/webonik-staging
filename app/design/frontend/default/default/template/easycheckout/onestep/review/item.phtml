@@ -118,9 +118,9 @@
     
     <?php if(Mage::helper('easycheckout')->getEasycheckoutConfig('general/enable_cartupdate')):?>
     <td class="a-center" style="white-space:nowrap;">
-    	<img class="" style="cursor:pointer;" onclick="billing.cartupdate(<?php echo $_item->getId();?>,'dec')" src="<?php echo $this->getSkinUrl('images/easycheckout/down.png')?>" />
+    	<img class="" style="cursor:pointer;" onclick="billing.cartupdate(<?php echo $_item->getId();?>,'dec')" src="<?php echo $this->getSkinUrl('images/easycheckout/decrease.gif')?>" />
     	<span class="a-center" ><?php echo $_item->getQty() ?></span>
-	<img class="" style="cursor:pointer;" onclick="billing.cartupdate(<?php echo $_item->getId();?>,'inc')" src="<?php echo $this->getSkinUrl('images/easycheckout/up.png')?>" />
+	<img class="" style="cursor:pointer;" onclick="billing.cartupdate(<?php echo $_item->getId();?>,'inc')" src="<?php echo $this->getSkinUrl('images/easycheckout/increase.gif')?>" />
     </td>
    
     <?php else:?>

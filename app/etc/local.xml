@@ -41,9 +41,9 @@
             <default_setup>
                 <connection>
                     <host><![CDATA[localhost]]></host>
-                    <username><![CDATA[shabdvis_mine]]></username>
-                    <password><![CDATA[Mvnwwy(^fT(V]]></password>
-                    <dbname><![CDATA[shabdvis_webonik2]]></dbname>
+                    <username><![CDATA[root]]></username>
+                    <password><![CDATA[]]></password>
+                    <dbname><![CDATA[webonik-staging]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>

@@ -19,7 +19,7 @@ $_columnCount = $this->getRequest()->getParam('page_size');
 foreach ($_productCollection as $_product): ?>
 
         <?php if ($i++ % $_columnCount == 0): ?>
-        <ul class="products-grid ac-product-list-feature">
+        <!--<ul class="products-grid ac-product-list-feature">-->
     <?php endif ?>
         <li class="item<?php if (($i - 1) % $_columnCount == 0): ?> first<?php elseif ($i % $_columnCount == 0): ?> last<?php endif; ?>">
             
@@ -49,7 +49,7 @@ foreach ($_productCollection as $_product): ?>
 				</div>
         </li>
     <?php if ($i % $_columnCount == 0 || $i == $_collectionSize): ?>
-        </ul>
+        <!--</ul>-->
     <?php endif ?>
 <?php endforeach ?>
 <script type="text/javascript">

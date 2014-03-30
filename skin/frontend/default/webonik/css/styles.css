@@ -310,7 +310,7 @@ input.input-text:focus,select:focus,textarea:focus { background-color:#edf7fd; }
 .fieldset .legend { float:left; font-weight:bold; font-size:13px; border:1px solid #f19900; background:#f9f3e3; color:#e76200; margin:-33px 0 0 -10px; padding:0 8px; position:relative; }
 
 /* Form Validation */
-.validation-advice { clear:both; min-height:13px; margin:3px 0 0; padding-left:17px; font-size:11px; font-weight:bold; line-height:13px; background:url(../images/validation_advice_bg.gif) 2px 0 no-repeat; color:#eb340a; }
+.validation-advice { clear:both; min-height:13px; margin:3px 0 0; padding-left:17px; font-size:11px; font-weight:bold; line-height:13px; color:#eb340a; }
 .validation-failed { border:1px dashed #eb340a !important; background:#faebe7 !important; }
 .validation-passed {}
 p.required { font-size:11px; text-align:right; color:#EB340A; }
@@ -1953,7 +1953,7 @@ body{ font:15px 'Droid Sans' !important; background-color:#962929;}
 .quick-cart-container .note {background-color: #971515; bottom: 0; color: #FFFFFF; font-size: 12px; height: 34px;left: 0;line-height: 15px; padding: 5px; position: absolute;    right: 0;    text-align: center;}
 .quick-cart-container .note .time {    font-size: 14px;}
 .product-image-container {   overflow: hidden; width: 100%;}
-.product-image-container span { height:42px; text-decoration: none; border-top: 1px solid #F8F3F3; padding: 0 8px; text-align:center; vertical-align:middle; width:150px; color:#000; font-size:12px; display: table-cell; background:url("../images/bg-product-title.png") repeat scroll 0 0; position:relative;z-index: 10; }
+.product-image-container span { height:42px; text-decoration: none; border-top: 1px solid #F8F3F3; padding: 0 8px; text-align:center; vertical-align:middle; width:150px; color:#000; font-size:12px; display: table-cell; position:relative;z-index: 10; }
 .product-image-container a{ text-decoration:none}
 .category-products .products-grid li{border:1px solid #BFBFBF;  margin-right:13px; margin-bottom:20px; /*padding:0 0 3px;*/ width:165px}
 .category-products .products-grid li a.product-image { height:185px; width:166px; margin:0}

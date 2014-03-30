@@ -38,6 +38,7 @@ class Webonik_Checkout_Block_Links extends Mage_Checkout_Block_Links
      *
      * @return Mage_Checkout_Block_Links
      */
+    /*
     public function addCartLink()
     {
         $parentBlock = $this->getParentBlock();
@@ -57,12 +58,13 @@ class Webonik_Checkout_Block_Links extends Mage_Checkout_Block_Links
         }
         return $this;
     }
-	
+*/	
     /**
      * Add link on checkout page to parent block
      *
      * @return Mage_Checkout_Block_Links
      */
+    /*
     public function addCheckoutLink()
     {
         if (!$this->helper('checkout')->canOnepageCheckout()) {
@@ -80,4 +82,6 @@ class Webonik_Checkout_Block_Links extends Mage_Checkout_Block_Links
         }
         return $this;
 	}
+    
+     */
 }
