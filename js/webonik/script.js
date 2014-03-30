@@ -182,6 +182,7 @@ var inMobileView;
 
 })(jQuery);
 
+
 ;(function(j) {
     j(function() {
         j('.header').wrapInner('<div class="header-content"></div>');
