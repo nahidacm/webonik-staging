@@ -53,7 +53,7 @@
 			
 			<div>
 				<span class="label">Brand:</span>
-				<span class="info"><?php echo $_helper->productAttribute($_product, $_product->getManufacturer(), 'manufacturer') ?></span>
+				<span class="info"><?php echo $_product->getAttributeText('manufacturer'); //$_helper->productAttribute($_product, $_product->getManufacturer(), 'manufacturer') ?></span>
 				<div class="clear"></div>
 			</div>
 			

@@ -1953,7 +1953,22 @@ body{ font:15px 'Droid Sans' !important; background-color:#962929;}
 .quick-cart-container .note {background-color: #971515; bottom: 0; color: #FFFFFF; font-size: 12px; height: 34px;left: 0;line-height: 15px; padding: 5px; position: absolute;    right: 0;    text-align: center;}
 .quick-cart-container .note .time {    font-size: 14px;}
 .product-image-container {   overflow: hidden; width: 100%;}
-.product-image-container span { height:42px; text-decoration: none; border-top: 1px solid #F8F3F3; padding: 0 8px; text-align:center; vertical-align:middle; width:150px; color:#000; font-size:12px; display: table-cell; position:relative;z-index: 10; }
+.product-image-container span { 
+    height:42px; 
+    text-decoration: none;
+    padding: 0 8px; text-align:center; 
+    vertical-align:middle; 
+    width:150px; color:#000; 
+    font-size:12px; 
+    display: table-cell; 
+    position:relative;
+    z-index: 10; 
+}
+.products-grid li:hover .product-image-container span {
+    background-color: rgba(139, 29, 29, 0.56);
+    border-top: none;
+    color: #FFF;
+}
 .product-image-container a{ text-decoration:none}
 .category-products .products-grid li{border:1px solid #BFBFBF;  margin-right:13px; margin-bottom:20px; /*padding:0 0 3px;*/ width:165px}
 .category-products .products-grid li a.product-image { height:185px; width:166px; margin:0}
