@@ -83,6 +83,9 @@
                 <action method="addCss">
                     <stylesheet>css/styles.css</stylesheet>
                 </action>
+                <action method="addCss">
+                    <stylesheet>css/devices.css</stylesheet>
+                </action>
                 <action method="addItem">
                     <type>skin_css</type>
                     <name>css/styles-ie.css</name>
