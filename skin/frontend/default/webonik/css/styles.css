@@ -909,7 +909,7 @@ tr.summary-details-excluded { font-style:italic; }
 /* Special price */
 .special-price { margin:0; padding:3px 0; }
 .special-price .price-label { font-size:13px; font-weight:bold; white-space:nowrap; color:#cd5033; }
-.special-price .price { font-size:13px; font-weight:bold; color:#c76200; }
+.product-price-container .price-box .special-price .price { font-size:13px; font-weight:bold; color:#c76200; }
 
 /* Minimal price (as low as) */
 .minimal-price { margin:0; }
